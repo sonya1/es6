@@ -1,4 +1,7 @@
-class Test{
+import './class/lesson3';
+
+
+/*class Test{
 	constructor(){
 		this.a = "hello world123";
 	}
@@ -6,4 +9,4 @@ class Test{
 
 let test = new Test();
 
-document.body.innerHTML = test.a;
+document.body.innerHTML = test.a;*/
