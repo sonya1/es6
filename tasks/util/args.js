@@ -31,4 +31,6 @@ const args = yargs
 		describe:'server port'
 	})
 
-	.argv
+	.argv  //对输入的命令行参数 以字符串进行解析
+
+export default args;  //暴露出去
