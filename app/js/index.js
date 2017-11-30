@@ -1,12 +1,4 @@
-import './class/lesson3';
+// import './class/lesson3';
 
-
-/*class Test{
-	constructor(){
-		this.a = "hello world123";
-	}
-}
-
-let test = new Test();
-
-document.body.innerHTML = test.a;*/
+import 'babel-polyfill';
+import Lottery from './lottery';
