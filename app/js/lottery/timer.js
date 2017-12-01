@@ -2,7 +2,7 @@ class Timer{
 	countdown(end,update,handle){
 		const now = new Date().getTime();
 		const self = this;
-		if(now-end){
+		if(now-end>0){
 			handle.call(self);
 		}else{
 			let last_time = end-now;
@@ -17,16 +17,16 @@ class Timer{
 
 			let r=[];
 			if(d>0){
-				r.push(`<em>${d}</em>`);
+				r.push(`<em>${d}</em>天`);
 			}
 			if(r.length || h>0){
-				r.push(`<em>${h}</em>`);
+				r.push(`<em>${h}</em>时`);
 			}
 			if(r.length || m>0){
-				r.pusm(`<em>${m}</em>`);
+				r.push(`<em>${m}</em>分`);
 			}
 			if(r.length || s>0){
-				r.push(`<em>${s}</em>`);
+				r.push(`<em>${s}</em>秒`);
 			}
 
 			self.last_time = r.join('');  //"1天2时4分3秒"

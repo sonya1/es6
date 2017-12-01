@@ -10,7 +10,8 @@ class Calculate{
 		const exist=this.play_list.has(play_name); 
 		const arr = new Array(active).fill('0');
 		if(exist && play_name.at(0) === 'r'){
-			count = Calculate.combine(arr,play_name.split("")[1]);
+//console.log('--->',arr,play_name,Calculate.combine(arr,play_name.split("")[1]));
+			count = Calculate.combine(arr,play_name.split("")[1]).length;
 		}
 		return count;
 	}
@@ -28,30 +29,30 @@ class Calculate{
 		let min,max;
 		if(play[0] === 'r'){
 			let min_active = 5-(11-active);  //最小命中数 选的数里面最少确定有几个是中奖号码
-			if(min_active-play[1]>=0){
-				arr = new Array(min_active).fill(0);
-				min = Calculate.combine(arr,play[1]).length;
-			}else{
-				if(play[1]-5>0 && active-play[1]>=0){
-					arr = new Array(active-5).fill(0);
-					min = Calculate.combine(arr,play[1]-5).length;
+			if(min_active>0){
+				if(min_active-play[1]>=0){
+					arr = new Array(min_active).fill(0);
+					min = Calculate.combine(arr,play[1]).length;
 				}else{
-					min = active-play[1]>-1?1:0;
+					if(play[1]-5>0 && active-play[1]>=0){
+						arr = new Array(active-5).fill(0);
+						min = Calculate.combine(arr,play[1]-5).length;
+					}else{
+						min = active-play[1]>-1?1:0;
+					}
 				}
+			}else{
+				min = active-play[1]>-1?1:0;
 			}
-		}else{
-			min = active-play[1]>-1?1:0;
-		}
 
-		let max_active = Math.min(active,5);
-		if(play[1]-5>0){
+			let max_active = Math.min(active,5);
 			if(play[1]-5>0){
 				if(active-play[1]>=0){
 					arr = new Array(active-5).fill(0);
-					max = Calculate.combine(arr,play[1]-5).length;
+					max = Calculate.combine(arr,play[1]-5);
 				}else{
 					max=0;
-				}
+				} 
 			}else if(play[1]-5<0){
 				arr = new Array(Math.min(active,5)).fill(0);
 				max = Calculate.combine(arr,play[1]).length;
@@ -92,7 +93,7 @@ class Calculate{
 				}
 			}
 		})(arr,size,[]);
-		
+		return allResult;
 		/*let n = arr.length; 
 		let m = size;
 		return Calculate.jiecheng(n) / (Calculate.jiecheng(n-m) * Calculate.jiecheng(m));*/
