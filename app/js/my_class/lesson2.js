@@ -2,25 +2,25 @@
 {
 	let a,b,rest;
 	[a,b] = [1,2];
-	console.log(a,b);
+	console.log(a,b);  //1 2
 }
 
 {
 	let a,b,rest;
 	[a,b,...rest] = [1,2,3,4,5,6,7];
-	console.log(a,b,rest);
+	console.log(a,b,rest);  //1 2 [4,5,6,7]
 }
 
 {
 	let a,b;
 	({a,b} = {a:1,b:2})
-	console.log(a,b);
+	console.log(a,b);  //1 2
 }
 
 {
 	let a,b,c,rest;
 	[a,b,c=3] = [1,2];
-	console.log(a,b,c);
+	console.log(a,b,c);  //1 2 3
 }
 
 {
@@ -36,7 +36,7 @@
 	}
 	let a,b;
 	[a,b] = f();  //取函数返回的数组
-	console.log(a,b); 
+	console.log(a,b);  //1 2
 }
 
 {
@@ -45,7 +45,7 @@
 	}
 	let a,b,c;
 	[a,,,b] = f();  //可以选择性的接受收某几个值
-	console.log(a,b);
+	console.log(a,b); //1 [4,5]
 }
 
 {
@@ -54,7 +54,7 @@
 	}
 	let a,b,c;
 	[a,...b] = f();  //取第一个值，其他的放在数组中
-	console.log(a,b);
+	console.log(a,b);  //1 [2,3,4,5]
 }
 
 {
@@ -63,7 +63,7 @@
 	}
 	let a,b,c;
 	[a,,...b] = f();  //取第一个值，过第二个值，剩下的放在数组中
-	console.log(a,b);
+	console.log(a,b);  //1 [3,4,5]
 }
 
 //对象解构赋值
@@ -99,5 +99,5 @@
 		}]
 	};
 	let {title:esTitle,dest:[{title:cnTitle}]} = metaData;
-	console.log(esTitle,cnTitle);  
+	console.log(esTitle,cnTitle);  //'abc' 'test'
 }
